@@ -28,8 +28,25 @@ class InventoryMapping:
 
     # Req 5.1
     def check_recipe_availability(self, recipe: Recipe) -> bool:
-        pass
+        if (
+            int(self.inventory[list(recipe.keys())[0]])
+            < int(list(recipe.values())[0])
+            or len(list(recipe)) > 1
+        ):
+            return False
+        return True
 
     # Req 5.2
     def consume_recipe(self, recipe: Recipe) -> None:
-        pass
+        for ingredient in list(recipe.items()):
+            dicionario = dict()
+            dicionario[ingredient[0]] = ingredient[1]
+            print(dicionario)
+            if self.check_recipe_availability(dicionario):
+                result = self.inventory[ingredient[0]] - ingredient[1]
+                print(result)
+                self.inventory[ingredient[0]] = result
+
+            else:
+                raise ValueError
+        return None
