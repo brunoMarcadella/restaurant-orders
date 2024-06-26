@@ -15,5 +15,5 @@ def test_ingredient():
     assert ingredient1 != ingredient3
     assert ingredient1.__repr__() == "Ingredient('queijo')"
     assert ingredient1.name == "queijo"
-    assert len(ingredient4.restrictions) > 0
+    assert len(ingredient4.restrictions) == 2
     assert len(ingredient5.restrictions) == 0
