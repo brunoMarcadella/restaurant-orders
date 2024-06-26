@@ -26,7 +26,3 @@ class MenuData:
                     )
 
             self.dishes = set(dishes.values())
-
-
-data = MenuData("tests/mocks/menu_base_data.csv")
-print(data.dishes)
