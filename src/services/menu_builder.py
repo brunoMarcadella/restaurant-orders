@@ -27,8 +27,17 @@ class MenuBuilder:
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
         menu = list()
+        availability = True
         for dish in list(self.menu_data.dishes):
-            if restriction not in dish.get_restrictions():
+            for recipe in list(dish.recipe.items()):
+                dicionario = dict()
+                dicionario[recipe[0]] = recipe[1]
+                # print(dicionario)
+                # print(list(dicionario.keys())[0])
+                # print(list(dicionario.values())[0])
+                if not self.inventory.check_recipe_availability(dicionario):
+                    availability = False
+            if restriction not in dish.get_restrictions() and availability:
                 menu.append(
                     {
                         "dish_name": dish.name,

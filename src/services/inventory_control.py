@@ -28,9 +28,14 @@ class InventoryMapping:
 
     # Req 5.1
     def check_recipe_availability(self, recipe: Recipe) -> bool:
+        ingrediente = list(recipe.keys())[0]
+
+        if ingrediente not in self.inventory:
+            print(f"Ingrediente {ingrediente} não está no inventário")
+            return False
+
         if (
-            int(self.inventory[list(recipe.keys())[0]])
-            < int(list(recipe.values())[0])
+            int(self.inventory[ingrediente]) < int(list(recipe.values())[0])
             or len(list(recipe)) > 1
         ):
             return False
@@ -41,10 +46,8 @@ class InventoryMapping:
         for ingredient in list(recipe.items()):
             dicionario = dict()
             dicionario[ingredient[0]] = ingredient[1]
-            print(dicionario)
             if self.check_recipe_availability(dicionario):
                 result = self.inventory[ingredient[0]] - ingredient[1]
-                print(result)
                 self.inventory[ingredient[0]] = result
 
             else:
