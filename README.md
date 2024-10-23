@@ -1,7 +1,3 @@
-Aqui está um exemplo de README para o projeto "Restaurant Orders":
-
----
-
 # 🍝 Restaurant Orders
 
 Boas-vindas ao repositório do projeto **Restaurant Orders**! Este projeto é uma ferramenta para o Restaurante **Chapa Quente** que permite gerar cardápios dinâmicos levando em conta restrições alimentares e a disponibilidade de ingredientes no estoque.
